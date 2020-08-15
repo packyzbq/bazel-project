@@ -1,3 +1,13 @@
+language: 
+- go
+- java
+
+go:
+- 1.13.x
+
+jdk:
+- openjdk11
+
 script:
 - git clone https://github.com/istio/proxy.git
 - cd proxy && git checkout 1.5.7 && cd -
@@ -7,5 +17,4 @@ script:
 - mv bazel-3.4.1-linux-x86_64 bazel && chmod +x bazel && mv bazel /usr/local/bin/bazel
 - cd proxy
 - bazel query 'deps(//tools/deb:istio-proxy)' --output graph
-
 
